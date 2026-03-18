@@ -1,18 +1,30 @@
  const fatorConversao = 0.01;
 
+ function detalhesClassificacao(classificacao) { // função para detalhar a classificação do imc
+    switch (classificacao) {
+        case 'UNDERWEIGHT':
+            return 'Abaixo do peso';
+        case 'REGULAR':
+            return 'Peso normal';
+        case 'OVERWEIGHT':
+            return 'Sobrepeso';
+        case 'OBESITY':
+            return 'Obesidade';
+        default:
+            return 'Classificação desconhecida';
+    }
+ }
+
  function classificacaoIMC(imc) { // função para classificar o resultado do imc
       if (imc < 18.5) {
-        return 'Abaixo do peso';    
+        return 'UNDERWEIGHT';    
     } else if (imc >= 18.5 && imc < 25) {
-        return 'Peso normal';
+        return 'REGULAR';
     } else if (imc >= 25 && imc < 30) {
-        return 'Sobrepeso';
+        return 'OVERWEIGHT';
     } else if (imc >= 30 && imc < 35) {
-        return 'Obesidade grau 1';
-    } else {
-        return 'Obesidade grau 2 ou 3';
-    }
-
+        return 'OBESITY';é
+    } 
  } 
   
  function calcularIMC(pessoa) {  // responsável para calcular o imc, recebe o peso e a altura como parâmetros
@@ -23,14 +35,17 @@
 
     let imc = peso / (altura * altura);
     const classificacao = classificacaoIMC(imc); // chama a função para classificar o resultado do imc
+    const detalhes = detalhesClassificacao(classificacao); // chama a função para detalhar a classificação do imc
     const resultado = 'O seu IMC é: ' + imc.toFixed(2); // toFixed(2) para limitar o resultado a 2 casas decimais
     const éSaudável = true; // variável para indicar se o resultado é saudável ou não
 
     return {
         nome: pessoa.nome,
         imc: resultado,
-        éSaudável: éSaudável,
-        classificação: classificacao
+        Saudavel: éSaudável,
+        classificacao: classificacao,
+        detalhes: detalhes
+
     }
 }
 
