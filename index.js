@@ -1,18 +1,20 @@
  const fatorConversao = 0.01;
 
- function detalhesClassificacao(classificacao) { // função para detalhar a classificação do imc
-    switch (classificacao) {
-        case 'UNDERWEIGHT':
-            return 'Abaixo do peso';
-        case 'REGULAR':
-            return 'Peso normal';
-        case 'OVERWEIGHT':
-            return 'Sobrepeso';
-        case 'OBESITY':
-            return 'Obesidade';
-        default:
-            return 'Classificação desconhecida';
-    }
+ const DIC_CLASSIFICACAO = {
+        UNDERWEIGHT: 'Abaixo do peso',
+        REGULAR: 'Peso normal',
+        OVERWEIGHT: 'Sobrepeso',
+        OBESITY: 'Obesidade'
+ };
+
+
+ function detalhesClassificacao(classificacao) { // função para detalhar a classificação do imc utilizando object mapping
+    return {
+        [DIC_CLASSIFICACAO.UNDERWEIGHT]: 'Abaixo do peso',
+        [DIC_CLASSIFICACAO.REGULAR]: 'Peso normal',
+        [DIC_CLASSIFICACAO.OVERWEIGHT]: 'Sobrepeso',
+        [DIC_CLASSIFICACAO.OBESITY]: 'Obesidade'
+    } [DIC_CLASSIFICACAO[classificacao]]; // retorna o detalhe da classificação do imc
  }
 
  function classificacaoIMC(imc) { // função para classificar o resultado do imc
@@ -23,7 +25,7 @@
     } else if (imc >= 25 && imc < 30) {
         return 'OVERWEIGHT';
     } else if (imc >= 30 && imc < 35) {
-        return 'OBESITY';é
+        return 'OBESITY';
     } 
  } 
   
