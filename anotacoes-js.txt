@@ -24,5 +24,3 @@
 // do { estrutura de repetição do while
 //     // código a ser executado
 // } while (condição); // a condição é verificada após a execução do código, garantindo que o bloco seja executado pelo menos uma vez
-
-//
